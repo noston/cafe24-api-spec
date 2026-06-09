@@ -1,0 +1,93 @@
+# RESTOCKNOTIFICATION SETTING
+
+
+## Restocknotification setting
+
+```json
+Endpoints    GET /api/v2/admin/restocknotification/setting
+PUT /api/v2/admin/restocknotification/setting
+```
+
+```json
+GET /api/v2/admin/restocknotification/setting
+PUT /api/v2/admin/restocknotification/setting
+```
+
+### Restocknotification setting property list
+
+| Attribute | Description |
+| --- | --- |
+| shop_no최소값: [1] | 멀티쇼핑몰 번호 DEFAULT 1 |
+| use | 사용 여부 T:사용 F:사용안함 |
+| is_button_show | 버튼 노출 여부 T:노출함 F:노출안함 |
+| expiration_period | 알림 유효기간 설정 1:1개월 3:3개월 6:6개월 12:1년 |
+| button_show_target | 버튼 노출 대상 A:모두 노출 M:회원만 노출 |
+| show_message_to_non_members최대글자수 : [30자] | 비회원 메시지 |
+| send_method | 발송 방법 A:자동발송 M:수동발송 |
+| button_show_method | 버튼 진열 타입 P:상품별 G:품목별 |
+| available_product | 버튼 노출 상품 A:전체상품 P:특정상품 E:제외상품 |
+| available_product_list배열 최대사이즈: [200] | 버튼 노출 상품 리스트 |
+
+### Retrieve restocknotification settings   cafe24
+
+#### 기본스펙
+
+| Property | Description |
+| --- | --- |
+| SCOPE | 상점 읽기권한 (mall.read_store) |
+| 호출건수 제한 | 40 |
+
+#### 요청사양
+
+| Parameter | Description |
+| --- | --- |
+| shop_no최소값: [1] | 멀티쇼핑몰 번호   DEFAULT 1 |
+
+```bash
+Retrieve restocknotification settings        Retrieve restocknotification settings       Request   cURL Java Python Node.js PHP Go  Copy     curl -X GET \  'https://{mallid}.cafe24api.com/api/v2/admin/restocknotification/setting' \  -H 'Authorization: Bearer {access_token}' \  -H 'Content-Type: application/json' \  -H 'X-Cafe24-Api-Version: {version}'    Response  Copy     {    "restocknotification": {        "shop_no": 1,        "use": "T",        "is_button_show": "T",        "expiration_period": 3,        "button_show_target": "A",        "show_message_to_non_members": "Please sign in",        "send_method": "A",        "button_show_method": "P",        "available_product": "P",        "available_product_list": [            9,            10        ]    }}
+```
+
+```bash
+curl -X GET \  'https://{mallid}.cafe24api.com/api/v2/admin/restocknotification/setting' \  -H 'Authorization: Bearer {access_token}' \  -H 'Content-Type: application/json' \  -H 'X-Cafe24-Api-Version: {version}'
+```
+
+```json
+{    "restocknotification": {        "shop_no": 1,        "use": "T",        "is_button_show": "T",        "expiration_period": 3,        "button_show_target": "A",        "show_message_to_non_members": "Please sign in",        "send_method": "A",        "button_show_method": "P",        "available_product": "P",        "available_product_list": [            9,            10        ]    }}
+```
+
+### Updated restocknotification settings   cafe24
+
+#### 기본스펙
+
+| Property | Description |
+| --- | --- |
+| SCOPE | 상점 쓰기권한 (mall.write_store) |
+| 호출건수 제한 | 40 |
+| 1회당 요청건수 제한 | 1 |
+
+#### 요청사양
+
+| Parameter | Description |
+| --- | --- |
+| shop_no최소값: [1] | 멀티쇼핑몰 번호   DEFAULT 1 |
+| use | 사용 여부   T:사용 F:사용안함 |
+| is_button_show | 버튼 노출 여부   T:노출함 F:노출안함 |
+| expiration_period | 알림 유효기간 설정   1:1개월 3:3개월 6:6개월 12:1년 |
+| button_show_target | 버튼 노출 대상   A:모두 노출 M:회원만 노출 |
+| show_message_to_non_members최대글자수 : [30자] | 비회원 메시지 |
+| send_method | 발송 방법   A:자동발송 M:수동발송 |
+| button_show_method | 버튼 진열 타입   P:상품별 G:품목별 |
+| available_product | 버튼 노출 상품   A:전체상품 P:특정상품 E:제외상품 |
+| available_product_list배열 최대사이즈: [200] | 버튼 노출 상품 리스트 |
+
+```bash
+Updated restocknotification settings        Updated restocknotification settings       Request   cURL Java Python Node.js PHP Go  Copy     curl -X PUT \  'https://{mallid}.cafe24api.com/api/v2/admin/restocknotification/setting' \  -H 'Authorization: Bearer {access_token}' \  -H 'Content-Type: application/json' \  -H 'X-Cafe24-Api-Version: {version}' \  -d '{    "shop_no": 1,    "request": {        "use": "T",        "is_button_show": "T",        "expiration_period": 3,        "button_show_target": "A",        "show_message_to_non_members": "Please sign in",        "send_method": "A",        "button_show_method": "P",        "available_product": "P",        "available_product_list": [            9,            10        ]    }}'    Response  Copy     {    "restocknotification": {        "shop_no": 1,        "use": "T",        "is_button_show": "T",        "expiration_period": 3,        "button_show_target": "A",        "show_message_to_non_members": "Please sign in",        "send_method": "A",        "button_show_method": "P",        "available_product": "P",        "available_product_list": [            9,            10        ]    }}
+```
+
+```bash
+curl -X PUT \  'https://{mallid}.cafe24api.com/api/v2/admin/restocknotification/setting' \  -H 'Authorization: Bearer {access_token}' \  -H 'Content-Type: application/json' \  -H 'X-Cafe24-Api-Version: {version}' \  -d '{    "shop_no": 1,    "request": {        "use": "T",        "is_button_show": "T",        "expiration_period": 3,        "button_show_target": "A",        "show_message_to_non_members": "Please sign in",        "send_method": "A",        "button_show_method": "P",        "available_product": "P",        "available_product_list": [            9,            10        ]    }}'
+```
+
+```json
+{    "restocknotification": {        "shop_no": 1,        "use": "T",        "is_button_show": "T",        "expiration_period": 3,        "button_show_target": "A",        "show_message_to_non_members": "Please sign in",        "send_method": "A",        "button_show_method": "P",        "available_product": "P",        "available_product_list": [            9,            10        ]    }}
+```
