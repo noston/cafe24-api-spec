@@ -393,3 +393,23 @@ Please be aware that the data shown in these examples are used for tests and may
 ## Next page
 
 **[Release](/app/front/app/launch)**
+
+인증방식
+카페24 WebHook 인증 정보는 X-API-Key 헤더에 포함되어 다음과 같은 형식으로 전송됩니다.
+외부에 노출된 경우 즉시 재발급받아 사용하시고, 관리에 주의하시기 바랍니다.
+형식 보기
+curl -X POST 'https://app.com/cafe24/recipe/webhook/if-regist-product' \
+--header 'Accept: application/json' \
+--header 'Accept-Charset: utf-8' \
+--header 'Accept-Encoding: gzip, deflate' \
+--header 'Content-Type: application/json' \
+--header 'X-API-Key: 5ab28b99-8b2e-4dac-857f-6bff71928f2b' \
+--header 'X-Trace-ID: 60fb413c-ab5d-46c6-9e91-b8250af27622'
+헤더 정보
+헤더	설명
+Accept	JSON 형식(encoding : utf-8)
+Content-Type	JSON 형식(encoding : utf-8)
+X-API-Key	Cafe24 WebHook 인증 정보
+* [개발자센터 > 상품관리 > App관리 > STEP 01. 개발정보 관리]의 WebHook 인증정보 그대로 전송됩니다.
+X-Trace ID	WebHook Trace ID
+* 개발자센터 > 상품관리 > App관리 > STEP 01. 개발정보 관리]의 WebHook 로그 조회 페이지에서 Trace ID를 통해 조회 가능합니다.
